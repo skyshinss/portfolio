@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>프런트엔드 개발자 지원서</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        #container { 
+				width:500px;
+				border:1px solid black;
+				padding:10px 40px;
+				margin:0 auto;
+        }
+        #main-title { 				
+				color: blue;
+		}
+        .title { 
+                color: red;
+             }
+        ul {list-style-type: none;}
+		li { line-height:30px;}
+        button {
+            padding: 10px;
+            background-color: green;
+            border: #fff;
+        }
+        
+        </style>
+</head>
+<body>
+    <div id="container">
+        <h1 id="main-title">프런트엔드 개발자 지원서</h1><br>
+        <p>HTML, CSS, 자바스크립트의 기술을 이해하고 실무 경험이 있는 분을 찾습니다.</p>
+        <br>
+        <hr>
+        <br>
+        <form>
+            <h4 class="title">개인 정보</h4>
+            <ul>
+                <li>
+                    <label for="user-info">이름</label>
+                    <input type="text" id="user-info" name="username" required placeholder="공백 없이 입력하세요.">
+                </li>
+                <li>
+                    <label for="phone">연락처</label>
+                    <input type="tel" id="phone" name="phone" required autofocus>
+                </li>
+            </ul>
+            <br>
+
+            <h4 class="title">지원 분야</h4>
+            <ul>
+                <li>
+                    <label for="web-pub">웹 퍼블리싱</label>
+                    <input type="radio" name="field" id="web-pub" value="web-publishing">
+                </li>
+                <li>               
+                    <label for="web-app">웹 어플리케이션</label>
+                    <input type="radio" name="field" id="web-app" value="web-app">
+                </li>
+                <li>
+                    <label for="dev-env">개발 환경 개선</label>
+                    <input type="radio" name="field" id="dev-env" value="dev-env">             
+                </li>
+            </ul>
+            <br>
+
+            <h4 class="title" style=line-height:40px;>지원 동기</h4>
+            <label>
+                <textarea name="motivation" cols="60" rows="5" placeholder="남길 말씀이 없다면 여기에 적어주세요."></textarea>
+            </label>
+            <br>
+
+            <div>
+                <button type="submit">접수하기</button>
+                <button type="reset">다시 쓰기</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
