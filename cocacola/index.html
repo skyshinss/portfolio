@@ -22,20 +22,81 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <style>
+    /* 828 여백 맞추기 */
+    .container{
+      padding: 0 5%;
+    }
     .navbar{
       background: white;
       padding: 0 !important;
       margin: 0 !important;
       height: 70px !important;
     }
+
+    .navbar-nav>.nav-item{
+      font-weight: bold;
+      color: black;
+      text-decoration: none;
+      padding: 15px 10px;
+      margin-left: 20px;
+      font-weight: bold;
+      font-size: 16px;
+      padding-left: 0;
+      margin-left: 0;
+
+    }
+
+    .navbar-nav>.nav-item:hover{
+      border-bottom: 3px solid black;
+    }
+
+    .navbar-nav .dropdown-menu {
+      margin-top: 18px; /* nav-link 밑줄보다 살짝 아래 */
+      border-radius: 0px;
+      border: 0px solid white;
+      font-size: 13px;
+    }
+
+    
+    /* #collapsibleNavbar{display: block !important;} 화살표 관련 내일 살릴 것*/
+    /* #collapsibleNavbar-m{display: block !important;} 화살표 관련 내일 살릴 것*/
+
+
     body{background: #eeeeee;}
 
-    #collapsibleNavbar .dropdown-toggle:hover+.dropdown-menu {
+    /*#collapsibleNavbar .dropdown-toggle:hover+.dropdown-menu {
+      display: block;
+    } hover를 사용 시 항상 부모쪽에 넣을 수 있도록 한다. 삭제 후 밑 828 */
+
+    #collapsibleNavbar .nav-item:hover .dropdown-menu {
       display: block;
     }
 
-    .slider-pc{display: block !important;}  
-    .slider-m{display: none !important;}  
+     /* nav 화설표 관련_828 */
+    #collapsibleNavbar .nav-item .dropdown-toggle::after{
+      border: none !important;
+    }
+     /* nav 화설표 관련_828 */
+    #collapsibleNavbar .nav-item:hover i{
+     animation: ani01 0.5s ease-in-out forwards !important;
+     
+    }
+      /* animation-name: ani01; */
+      /* animation-duration: 0.5s; */
+      /* animation-timing-function: ease-in-out; */
+      
+      /* 애니메이션 종료후 마지막 상태(last frame) 유지. 원래 상태로 돌아가지 않음. */
+      /* animation-fill-mode: forwards;   */
+
+
+    /* nav 화설표 90도 회전_828 */
+    @keyframes ani01{
+      0%{transform: rotate(0deg);}
+      100%{transform: rotate(90deg);}
+    }
+
+    .slider-pc{display: block !important;}
+    .slider-m{display: none !important;}
     
     .slider-container { 
       max-width: 1500px;
@@ -51,6 +112,7 @@
     .slide .more{
      position: absolute; /* 자식 position:absolute 설정. grouping */
     }
+
     .slide .caption{
       left: 5px;
       top:200px;
@@ -58,9 +120,11 @@
       font-weight: bold;
       font-family: sans-serif;
     }
+
     .slide .caption p {
     font-weight: 400;
     }
+
     .slide .more{
       left: 5px;
       top:320px;
@@ -95,6 +159,7 @@
       border: 1px solid #fff;
       box-shadow: 0 8px 15px rgba(0, 0, 0, 0.10);
     }
+
     .thumbnail img{
       border-top-left-radius: 10px;
       border-top-right-radius: 10px;
@@ -103,16 +168,16 @@
     }
     
     .thumbnail p{
-        font-size: 24px;
+        font-size: 20px;
         padding: 25px;
     }
-
+    #pick {padding-top: 50px; padding-bottom: 50px;}
     #pick h1,
     #brand h1 {
         text-align: center;
         margin-bottom: 30px;
         font-family: 'Gill Sans';
-        font-weight: bold;
+        font-weight: 500;
     }
 
     .thumbnail .btn {
@@ -121,7 +186,7 @@
         font-weight: bold;
         padding: 25px;
     }
-
+    #story  {padding-top: 50px; padding-bottom: 20px; margin-bottom: 20px; margin-top:20px;}
     #story .col-md-6 h3,
     #tomorrow .col-md-6 h3{      
       font-size: 30px;
@@ -142,15 +207,22 @@
       height: 100%;
     }
 
-    .container{
-      padding-top: 50px;
-      padding-bottom: 50px;      
+    #collapsibleNavbar-m{
+      position: fixed !important;
+      width: 100% !important;
+      height: 100% !important;
+      background-color: white !important; 
+      z-index: 999999999 !important;
+      color: black !important;
+      top:0;
+      left: 0;
     }
 
-    /* #story{
+
+    #story{
       background: blue;
       position: relative; 
-    }*/
+    }
 
     #story .btn,
     #tomorrow .btn{    
@@ -159,44 +231,76 @@
       border-radius: 20px;
     }
 
+   /*828 수정*/
     #story .col-md-6,
     #tomorrow .col-md-6
     {
       border-radius: 10px !important;
       background: white;
-      /* position: absolute; */
+      height: 500px !important;
+
     }
     #story .col-md-6 img,
-    #tomorrow .col-md-6 img
-    {
+    #tomorrow .col-md-6 img{
       border-radius: 10px;
     }
 
-    #story .col-md-6:nth-child(1){
-      /* top:0 !important;
-      left: 0 !important; */
-      z-index: 99999;     
+     /*828 수정*/
+    #story .row,
+    #tomorrow .row{
+      display: flex !important;
+      align-items: center;
+      background: green;
+      height: 600px;
+      gap: -20px !important;
     }
-    /* #story .col-md-6:nth-child(2){
-      top:100px !important;
-      left:600px !important;  
-    }*/    
 
+    #story .col-md-6:nth-child(1),
+    #tomorrow .col-md-6:nth-child(2){
+      align-self: flex-start !important;
+    }
+
+    #story .col-md-6:nth-child(1),
+    #tomorrow .col-md-6:nth-child(2){
+      align-self: flex-end !important;  
+    }
+
+    #story .col-md-6:nth-child(1),
+    #tomorrow .col-md-6:nth-child(1){
+      margin-right: -100px !important; /*왼쪽박스를 기준으로 오른쪽박스를 왼쪽으로 이동해서 겹치게*/  
+    }
+
+    #story .col-md-6:nth-child(1){
+      z-index: 999;
+    }
+
+    /* 브랜드 살펴보기 수정 828 */
+    #brand {padding-top: 50px; padding-bottom: 20px; margin-bottom: 20px; margin-top:20px; text-align: center; }
+    #brand .row{      
+      justify-content: center;
+    }
     #brand .col-md-4{
       background: white;
       box-sizing: border-box;
-      border:10px solid #eeeeee;
+      margin: 10px;
+      /* border:2px solid #990d0d; */
       transition: 0.5s;
+      width: 230px;
+      height: 230px;      
+      border-radius: 10px;        
+      display: flex;
+      align-items: center; 
     }
 
     #brand .col-md-4 img{
-      width: 100%;      
+      width: 100%; 
     }
 
     #brand .col-md-4:hover{
       transform: scale(1.05);
     }
 
+    /* foot 부분 */
     footer.container-fluid{
       background: black;
     } 
@@ -215,12 +319,68 @@
       padding: 0;
       margin: 0;
     }
-    
-  @media screen and (max-width:767px) {
+
+  /* 모바일 코드 수정 828*********************************************************************/
+  @media screen and (max-width:767px) {  
+    /* #collapsibleNavbar{
+      position: fixed !important; 
+      width: 100% !important;
+      height: 100% !important;
+      background-color: white !important;
+      z-index: 999999999 !important;
+      color:black !important;
+      top: 0;
+      left: 0;
+    } */
+
+  #collapsibleNavbar{ display: block !important;}
+  #collapsibleNavbar-m{ display: none !important;}
+
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+
+.active, .accordion:hover {
+  background-color: #ccc;
+}
+
+.accordion:after {
+  content: '\002B';
+  color: #777;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2212";
+}
+
+.panel {
+  padding: 0 18px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+
     .slide{ text-align: center !important;}
+
+    .slider-container,
+    .slider, 
+    .slider .slide,
     .slider .slide img {
       width: 100%;
-      height: 700px;
+      height: 700px !important; 
       border-radius: 10px;
     }
     
@@ -271,19 +431,22 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <div>
+          <a hre="#" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">&times;</a>
+        </div>
         <ul class="navbar-nav">
           <li class="nav-item">
             <a class="nav-link" href="#">Brands</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Our Company</a>
+            <a class="nav-link dropdown-toggle" href="#" role="button">Our Company<i class="fa-solid fa-chevron-right ms-1"></i></a><!-- 화살표 관련 828-->                         
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="#">Coca-Cola Company</a></li>
               <li><a class="dropdown-item" href="#">Since 1886</a></li>
             </ul>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Discover</a>
+            <a class="nav-link dropdown-toggle" href="#" role="button">Discover<i class="fa-solid fa-chevron-right ms-1"></i></a><!-- 화살표 관련 828-->             
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="#">Brand Story</a></li>
               <li><a class="dropdown-item" href="#">Coke & Meal</a></li>
@@ -298,7 +461,44 @@
           </li>          
         </ul>
       </div>
+      
+      <!-- <div id="collapsibleNavbar-m">
+        <button class="accordion">Section 1</button>
+        <div class="panel">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+
+        <button class="accordion">Section 2</button>
+        <div class="panel">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+
+        <button class="accordion">Section 3</button>
+        <div class="panel">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+
+        <script>
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+
+        for (i = 0; i < acc.length; i++) {
+          acc[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.maxHeight) {
+              panel.style.maxHeight = null;
+            } else {
+              panel.style.maxHeight = panel.scrollHeight + "px";
+            } 
+          });
+        }
+        </script> -->
+
+
+
     </div>
+    
   </nav>
   <!-- /navigation -->
    
@@ -366,7 +566,7 @@
   </div>
   <!-- /이달의 PICK -->
 
-  <!-- story ------------------------------------------------------------------------------------>
+  <!-- story 828 수정------------------------------------------------------------------------------------>
   <div id="story" class="container">
     <div class="row">
       <div class="col-md-6 d-flex flex-column">
@@ -406,7 +606,7 @@
       </div>
     </div>
   </div>
-  <!-- /story -->
+  <!-- /tomorrow -->
 
   <!-- 브랜드 살펴보기 ------------------------------------------------------------------------------>
   <div id="brand" class="container">
@@ -477,7 +677,7 @@
       <hr style="border: 1px solid white;">
       © 2024 The Coca-Cola Company. 판권 소유
     </div>
-  </footer> 
+  </footer>
   <!-- /footer -->
   
 </body>
