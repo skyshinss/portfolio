@@ -109,7 +109,7 @@ header{
   transition: background-color 0.3s ease;
 }
 
-#gnb ul a:hover{background: #fff;color:#333;}
+#gnb ul a:hover{background: #fff;color: #000;}
 
 /* sns 버튼 */
 #sns{position: fixed;top:30px;right:20px;list-style: none;}
@@ -118,9 +118,9 @@ header{
 #sns .fa:hover{opacity: 1;transform: scale(1.4);}
 
 /* 텍스트 박스 */
-.txtBox { width:380px; height:280px; position:fixed; top:200px; left:70px; }
-.txt { position:absolute; top:150px; right:0px; font-size:50px; font-family:play; color:#f5f5f5; letter-spacing:-2px;}
-.tit { position:absolute; top:50px; right:20px; font-size:55px; color:#f5f5f5; font-family: 'Monoton', cursive; letter-spacing:-1px;}
+.txtBox { width:480px; height:280px; position:fixed; top:200px; left:70px; }
+.txt { position:absolute; top:150px; left:100px; font-size:50px; font-family:play; color:#f5f5f5; letter-spacing:-2px;}
+.tit { position:absolute; top:50px; left:100px; font-size:55px; color:#f5f5f5; font-family: 'Monoton', cursive; letter-spacing:-1px;}
 
 /* contents 레이아웃 */
 #side { width:800px; height:100%; position:fixed; bottom:0px; right:-800px; background:#111; opacity:0.5; transform:skewX(-40deg); transition:all 0.5s;}
